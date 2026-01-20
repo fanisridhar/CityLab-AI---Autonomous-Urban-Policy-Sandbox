@@ -2,14 +2,18 @@
 
 A multi-agent urban simulator where LLM-driven stakeholder agents (residents, transit operators, planners, businesses, emergency services) test policies, infrastructure changes, and events in a sandboxed digital twin of a city — producing explainable outcomes, tradeoffs, and actionable recommendations.
 
-## 🚀 Why This is Mind-Blowing
+## Project Overview
+
+This system combines real-world urban data with multi-agent simulation to enable policy makers, urban planners, and researchers to test the potential impacts of urban policies before implementation. The platform uses large language models (LLMs) to drive intelligent agent behaviors, allowing for realistic simulations of how different stakeholders might respond to policy changes.
+
+### Key Features
 
 - **Real-world data integration**: Combines GIS maps, transit networks, population data, and historical events
 - **Multi-agent reasoning**: LLMs act as cognitive controllers for heterogeneous agents that interpret goals, read policy docs, negotiate, and generate structured actions
 - **Scenario experimentation**: "What if?" experiments at city scale with human-in-the-loop validation
 - **Explainable AI**: Every agent decision links back to evidence (policy docs, simulation traces, retrieved sources)
 
-## 🏗️ Architecture
+## System Architecture
 
 ### Frontend
 - **Next.js** + **Mapbox/Deck.gl** for interactive geospatial visualization
@@ -32,7 +36,7 @@ A multi-agent urban simulator where LLM-driven stakeholder agents (residents, tr
 - **Emergency Services**: Incident response, resource allocation
 - **Orchestrator**: Coordinates simulation, manages scenarios, aggregates KPIs
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.10+
@@ -58,7 +62,7 @@ npm install
 ### Environment Variables
 Create `.env` files in both `backend/` and `frontend/` directories. See `.env.example` files for required variables.
 
-## 🚀 Running Locally
+## Running Locally
 
 ### Backend
 ```bash
@@ -78,13 +82,13 @@ cd backend
 celery -A app.celery_app worker --loglevel=info
 ```
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ```bash
 docker-compose up -d
 ```
 
-## 📊 MVP Features
+## MVP Features
 
 - Import street graphs and POIs from OpenStreetMap
 - Resident agents with commuter schedules and route choice
@@ -93,28 +97,28 @@ docker-compose up -d
 - Interactive map visualization with time slider
 - Explainability: agent actions annotated with prompts/retrieved docs
 
-## 🔬 Evaluation Metrics
+## Evaluation Metrics
 
 - Policy impact: % change in commute time, transit modal share, emissions
 - Equity indices: access to jobs within 30 min
 - Simulation realism: validation vs historical baseline
 - Explainability score: quality of LLM rationales
 
-## 🛡️ Safety & Ethics
+## Safety & Ethics
 
 - All outputs labeled as simulated projections (not predictions)
 - Confidence ranges and provenance provided
 - Human review required for real policy decisions
 - Privacy protection for sensitive municipal data
 
-## 📝 License
+## License
 
 MIT License
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Please read our contributing guidelines first.
 
-## 📧 Contact
+## Contact
 
 For questions or partnerships, please open an issue or contact the maintainers.
