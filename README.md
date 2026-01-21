@@ -9,7 +9,9 @@ A multi-agent urban simulator where LLM-driven stakeholder agents (residents, tr
 - [System Architecture](#system-architecture)
 - [Installation](#installation)
 - [Running Locally](#running-locally)
+- [Quickstart (Docker)](#quickstart-docker)
 - [Docker Deployment](#docker-deployment)
+- [API](#api)
 - [MVP Features](#mvp-features)
 - [Evaluation Metrics](#evaluation-metrics)
 - [Safety and Ethics](#safety-and-ethics)
@@ -130,6 +132,29 @@ docker-compose exec backend alembic upgrade head
 
 ```bash
 docker-compose up -d
+```
+
+## API
+
+The backend serves OpenAPI docs at:
+- `http://localhost:8000/api/docs`
+
+Common endpoints:
+- `GET /api/v1/scenarios/`: list scenarios
+- `POST /api/v1/scenarios/`: create a scenario
+- `POST /api/v1/scenarios/{scenario_id}/runs`: start a simulation run (triggers Celery task)
+
+Example: create a scenario
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/scenarios/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Bus priority lane (demo)",
+    "description": "Basic demo scenario for a bus-priority policy",
+    "policy_type": "bus_priority",
+    "policy_config": {"corridor_id": "demo", "lane_hours": "07:00-19:00"}
+  }'
 ```
 
 ## MVP Features
