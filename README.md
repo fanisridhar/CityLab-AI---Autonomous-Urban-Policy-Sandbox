@@ -7,6 +7,7 @@ A multi-agent urban simulator where LLM-driven stakeholder agents (residents, tr
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
 - [System Architecture](#system-architecture)
+- [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Running Locally](#running-locally)
 - [Quickstart (Docker)](#quickstart-docker)
@@ -15,6 +16,7 @@ A multi-agent urban simulator where LLM-driven stakeholder agents (residents, tr
 - [MVP Features](#mvp-features)
 - [Evaluation Metrics](#evaluation-metrics)
 - [Safety and Ethics](#safety-and-ethics)
+- [Roadmap](#roadmap)
 - [License](#license)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -52,6 +54,28 @@ This system combines real-world urban data with multi-agent simulation to enable
 - **Developer/Business Agent**: Location decisions, pricing, zoning reactions
 - **Emergency Services**: Incident response, resource allocation
 - **Orchestrator**: Coordinates simulation, manages scenarios, aggregates KPIs
+
+## Repository Structure
+
+```text
+.
+├── backend/                 # FastAPI + simulation engine + agents
+│   ├── app/
+│   │   ├── agents/          # LLM-driven agent controllers
+│   │   ├── api/             # API routers
+│   │   ├── core/            # config, DB, Redis, Celery
+│   │   ├── models/          # SQLAlchemy models
+│   │   ├── rag/             # retrieval + vector store
+│   │   ├── simulation/      # Mesa city model + engine
+│   │   └── tasks/           # Celery tasks
+│   └── alembic/             # DB migrations
+├── frontend/                # Next.js UI
+│   ├── app/                 # App router pages
+│   └── components/          # Map + panels + charts
+├── docker-compose.yml
+├── DEPLOYMENT.md
+└── README.md
+```
 
 ## Installation
 
@@ -173,12 +197,20 @@ curl -X POST "http://localhost:8000/api/v1/scenarios/" \
 - Simulation realism: validation vs historical baseline
 - Explainability score: quality of LLM rationales
 
-## Safety & Ethics
+## Safety and Ethics
 
 - All outputs labeled as simulated projections (not predictions)
 - Confidence ranges and provenance provided
 - Human review required for real policy decisions
 - Privacy protection for sensitive municipal data
+
+## Roadmap
+
+- Improve agent behaviors and add more realistic decision constraints
+- Add additional agent types (businesses, developers, emergency services)
+- Add more policy types (zoning, pricing, bike infrastructure)
+- Add exports (reports with citations and scenario summaries)
+- Add validation tools for comparing simulated baselines to historical data
 
 ## License
 
