@@ -97,6 +97,35 @@ cd backend
 celery -A app.celery_app worker --loglevel=info
 ```
 
+## Quickstart (Docker)
+
+If you want to run everything locally with the fewest steps, use Docker Compose.
+
+1. Create a root `.env` file (optional but recommended):
+
+```bash
+export OPENAI_API_KEY=your_key_here
+export ANTHROPIC_API_KEY=your_key_here
+export NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token_here
+```
+
+2. Start services:
+
+```bash
+docker-compose up -d
+```
+
+3. Run database migrations:
+
+```bash
+docker-compose exec backend alembic upgrade head
+```
+
+4. Open:
+- Frontend: `http://localhost:3000`
+- Backend API: `http://localhost:8000`
+- API docs: `http://localhost:8000/api/docs`
+
 ## Docker Deployment
 
 ```bash
