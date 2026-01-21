@@ -2,6 +2,21 @@
 
 A multi-agent urban simulator where LLM-driven stakeholder agents (residents, transit operators, planners, businesses, emergency services) test policies, infrastructure changes, and events in a sandboxed digital twin of a city — producing explainable outcomes, tradeoffs, and actionable recommendations.
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
+- [Installation](#installation)
+- [Running Locally](#running-locally)
+- [Docker Deployment](#docker-deployment)
+- [MVP Features](#mvp-features)
+- [Evaluation Metrics](#evaluation-metrics)
+- [Safety and Ethics](#safety-and-ethics)
+- [License](#license)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
 ## Project Overview
 
 This system combines real-world urban data with multi-agent simulation to enable policy makers, urban planners, and researchers to test the potential impacts of urban policies before implementation. The platform uses large language models (LLMs) to drive intelligent agent behaviors, allowing for realistic simulations of how different stakeholders might respond to policy changes.
