@@ -21,7 +21,7 @@ class CityDataResponse(BaseModel):
     data_type: str
     source_url: Optional[str]
     status: str
-    metadata: Optional[dict]
+    metadata_json: Optional[dict]  # Maps to metadata_json attribute
     created_at: datetime
     
     class Config:

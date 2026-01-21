@@ -22,7 +22,7 @@ class CityData(Base):
     file_path = Column(String(500))
     
     # Data content
-    metadata = Column(JSON)  # Data-specific metadata
+    metadata_json = Column(JSON, name="metadata")  # Data-specific metadata (column name is metadata in DB)
     geometry = Column(JSON)  # GeoJSON or similar
     
     # Processing status
