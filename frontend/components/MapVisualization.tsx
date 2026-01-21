@@ -80,7 +80,11 @@ export default function MapVisualization({ scenarioId, currentTick }: MapVisuali
     <div ref={mapContainer} className="w-full h-full">
       <DeckGL
         viewState={viewState}
-        onViewStateChange={({ viewState }) => setViewState(viewState)}
+        onViewStateChange={(e: any) => {
+          if (e.viewState) {
+            setViewState(e.viewState)
+          }
+        }}
         controller={true}
         layers={layers}
       >

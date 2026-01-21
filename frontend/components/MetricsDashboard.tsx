@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
@@ -23,13 +23,7 @@ export default function MetricsDashboard({ scenarioId }: MetricsDashboardProps) 
   const [timeSeries, setTimeSeries] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    if (!scenarioId) return
-    fetchMetrics()
-    fetchTimeSeries()
-  }, [scenarioId])
-
-  const fetchMetrics = async () => {
+  const fetchMetrics = useCallback(async () => {
     if (!scenarioId) return
     setLoading(true)
     try {
@@ -46,9 +40,9 @@ export default function MetricsDashboard({ scenarioId }: MetricsDashboardProps) 
     } finally {
       setLoading(false)
     }
-  }
+  }, [scenarioId])
 
-  const fetchTimeSeries = async () => {
+  const fetchTimeSeries = useCallback(async () => {
     if (!scenarioId) return
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
@@ -69,7 +63,14 @@ export default function MetricsDashboard({ scenarioId }: MetricsDashboardProps) 
     } catch (error) {
       console.error('Failed to fetch time series:', error)
     }
-  }
+  }, [scenarioId])
+
+  useEffect(() => {
+    if (!scenarioId) return
+    fetchMetrics()
+    fetchTimeSeries()
+  }, [scenarioId, fetchMetrics, fetchTimeSeries])
+
 
   if (!scenarioId) {
     return (
