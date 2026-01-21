@@ -22,7 +22,8 @@
     "recharts": "^2.10.3",
     "date-fns": "^3.0.6",
     "zustand": "^4.4.7",
-    "react-query": "^3.39.3"
+    "react-query": "^3.39.3",
+    "react-map-gl": "^7.1.7"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
